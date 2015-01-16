@@ -23,7 +23,7 @@ Supports RFC3164 and RFC5424.
 	
 	syslog_onsite->warning('Oh no this is a warning')
 	syslog_onsite->notice('Hey this has happened')
-	syslog_onsite->informational('Just some info')
+	syslog_onsite->info('Just some info')
 
 	syslog_local->debug('Just some debugging info')
 
@@ -64,6 +64,6 @@ Supports RFC3164 and RFC5424.
 - ->error
 - ->warning
 - ->notice
-- ->informational
+- ->info
 - ->debug
 
