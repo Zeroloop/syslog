@@ -112,7 +112,7 @@ define syslog => type {
 	public facility=(p::integer) => {.'facility' = #p}
 
 	public facility=(p::string) => {
-		match(#p)                        = > {
+		match(#p) => {
 		case('kernel')      .'facility'  = syslog_facility_kernel
 		case('user')        .'facility'  = syslog_facility_user
 		case('mail')        .'facility'  = syslog_facility_mail
