@@ -93,13 +93,13 @@ define syslog => type {
 	) => {
 		.host     = #host
 		.port     = #port
-		.machine  = #machine
+		.machine  = #machine || (web_request ? server_name) || (web_request ? server_ip) || ''
 		.app      = #app
 		.protocol = #protocol
 		.facility = #facility
 	}
 
-	public machine => .'machine' || (web_request ? server_name) || (web_request ? server_ip) || ''
+	public machine => .'machine' 
 
 	private priority(severity::integer = .severity) => (.facility * 8) + #severity 
 
@@ -161,8 +161,10 @@ define syslog => type {
 //
 ///////////////////////////////////////////////////////
 
-	public write(msg::string,priority::integer = .priority) => {
+	public write(msg::string,priority::integer) => {
 		local(message) = array
+
+
 
 		match(.protocol) => {
 			case('RFC5424')
@@ -186,9 +188,13 @@ define syslog => type {
 				)->join(' ')
 
 		}
+		
+		
 
-		syslog_udp->writeBytes(#message->asbytes,.host,.port)
 	}
+
+	public write(msg::string) => .write(#msg->asbytes)
+	public write(msg::bytes) => syslog_udp->writeBytes(#msg,.host,.port)
 
 }
 ?>
