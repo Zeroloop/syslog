@@ -136,7 +136,8 @@ define syslog => type {
 		case('local_user_4') .'facility' = syslog_facility_local_user_4
 		case('local_user_5') .'facility' = syslog_facility_local_user_5
 		case('local_user_6') .'facility' = syslog_facility_local_user_6
-		case('local_user_7') .'facility' = syslog_facility_local_user_7	
+		case('local_user_7') .'facility' = syslog_facility_local_user_7
+		case fail(-1,'Syslog unknown facility: ' + #p)
 		}
 	}
 
@@ -161,32 +162,29 @@ define syslog => type {
 //
 ///////////////////////////////////////////////////////
 
-	public write(msg::string,priority::integer) => {
+	public write(msg::string,priority::integer) => debug => {
 		local(message) = array
 
 
 
 		match(.protocol) => {
 			case('RFC5424')
-				#message = (:
-					'<'+#priority +'>1',
-					date->format('YYYY-MM-dd HH:mm:ss.SSXXX')->replace(' ','T')&  ,
-					.machine,
-					.app,
-					'-',
-					'ID47',
-					'-',
+				#message = 
+					'<'+#priority +'>1' + ' ' + 
+					date->format(`yyyy-MM-dd'T'HH:mm:ss.SSXXX`) + ' ' + 
+					.machine + ' ' + 
+					.app + ' ' + 
+					'-' + ' ' + 
+					'ID' + ' ' + 
+					'-' + ' ' + 
 					bom_utf8 + #msg
-				)->join(' ')
 
 			case('RFC3164')
-				#message = (:
-					'<' + #priority + '>' + date->format('MMM dd HH:mm:ss'),
-					.machine,
-					.app+':',
+				#message = 
+					'<' + #priority + '>' + date->format('MMM dd HH:mm:ss') + ' ' + 
+					.machine + ' ' + 
+					.app + ' ' + 
 					 #msg
-				)->join(' ')
-
 		}
 		
 		
