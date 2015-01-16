@@ -192,7 +192,9 @@ define syslog => type {
 	}
 
 	public write(msg::string) => .write(#msg->asbytes)
-	public write(msg::bytes) => syslog_udp->writeBytes(#msg,.host,.port)
+	public write(msg::bytes) => {
+		syslog_udp->writeBytes(#msg,.host,.port)
+	}
 
 }
 ?>
