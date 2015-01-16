@@ -31,40 +31,40 @@ Supports RFC3164 and RFC5424.
 
 ## Facilities
 
-	- kernel
-	- user
-	- mail
-	- system
-	- security
-	- messages
-	- line
-	- network
-	- uucp
-	- clock
-	- security
-	- ftp
-	- ntp
-	- audit
-	- alert
-	- clock2
-	- local_user_0
-	- local_user_1
-	- local_user_2
-	- local_user_3
-	- local_user_4
-	- local_user_5
-	- local_user_6
-	- local_user_7
+- kernel
+- user
+- mail
+- system
+- security
+- messages
+- line
+- network
+- uucp
+- clock
+- security
+- ftp
+- ntp
+- audit
+- alert
+- clock2
+- local_user_0
+- local_user_1
+- local_user_2
+- local_user_3
+- local_user_4
+- local_user_5
+- local_user_6
+- local_user_7
 
 ## Message types
 
-	->emergency
-	->alert
-	->critical
-	->error
-	->warning
-	->notice
-	->informational
-	->debug
+->emergency
+->alert
+->critical
+->error
+->warning
+->notice
+->informational
+->debug
 
 	         
