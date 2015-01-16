@@ -5,7 +5,7 @@ Supports RFC3164 and RFC5424.
 ## Example Usage
 
 ```lasso
-	define syslog_offiste => syslog('syslog-server.com',22231)
+	define syslog_offsite => syslog('syslog-server.com',22231)
 	define syslog_onsite => syslog(
 							 -host     = '10.0.0.1',
 							 -port     = 415,
@@ -16,10 +16,10 @@ Supports RFC3164 and RFC5424.
 
    	define syslog_local => syslog
 
-	syslog_offiste->emergency('Can some one help this is a emergency')
-	syslog_offiste->alert('Hey! look at this alert')
-	syslog_offiste->critical('WTF this is critical')
-	syslog_offiste->error('Oh shit this is a error')
+	syslog_offsite->emergency('Can some one help this is a emergency')
+	syslog_offsite->alert('Hey! look at this alert')
+	syslog_offsite->critical('WTF this is critical')
+	syslog_offsite->error('Oh shit this is a error')
 	
 	syslog_onsite->warning('Oh no this is a warning')
 	syslog_onsite->notice('Hey this has happened')
