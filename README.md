@@ -4,35 +4,33 @@ Supports RFC3164 and RFC5424.
 
 ## Example Usage
 
-```lasso
-	
-	// Define some stubs
-	define syslog_offsite => syslog('syslog-server.com',22231)
-	define syslog_onsite => syslog(
-							 -host     = '10.0.0.1',
-							 -port     = 415,
-							 -machine  = 'web01',
-							 -app      = 'MyApp',
-							 -protocol = 'RFC5424' 
-						   )
+```lasso	
+// Define some stubs
+define syslog_offsite => syslog('syslog-server.com',22231)
+define syslog_onsite => syslog(
+						 -host     = '10.0.0.1',
+						 -port     = 415,
+						 -machine  = 'web01',
+						 -app      = 'MyApp',
+						 -protocol = 'RFC5424' 
+					   )
 
-	// By default uses 127.0.0.1, 415
-   	define syslog_local => syslog
+// By default uses 127.0.0.1, 415
+define syslog_local => syslog
 
-   	// Log issues to remote server
-	syslog_offsite->emergency('Can some one help this is a emergency')
-	syslog_offsite->alert('Hey! look at this alert')
-	syslog_offsite->critical('WTF this is critical')
-	syslog_offsite->error('Oh no this is a error')
-	
-   	// Log issues to remote server
-	syslog_onsite->warning('Oh no this is a warning')
-	syslog_onsite->notice('Hey this has happened')
-	syslog_onsite->info('Just some info')
+// Log issues to remote server
+syslog_offsite->emergency('Can some one help this is a emergency')
+syslog_offsite->alert('Hey! look at this alert')
+syslog_offsite->critical('WTF this is critical')
+syslog_offsite->error('Oh no this is a error')
 
-   	// Log an issue locally
-	syslog_local->debug('Just some debugging info')
+// Log issues to remote server
+syslog_onsite->warning('Oh no this is a warning')
+syslog_onsite->notice('Hey this has happened')
+syslog_onsite->info('Just some info')
 
+// Log an issue locally
+syslog_local->debug('Just some debugging info')
 ```
 
 ## Facilities
