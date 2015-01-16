@@ -22,7 +22,7 @@ Supports RFC3164 and RFC5424.
 	syslog_offiste->error('Oh shit this is a error')
 	
 	syslog_onsite->warning('Oh no this is a warning')
-	syslog_onsite->notice('Hey this has happened)
+	syslog_onsite->notice('Hey this has happened')
 	syslog_onsite->informational('Just some info')
 
 	syslog_local->debug('Just some debugging info')
