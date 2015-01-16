@@ -31,10 +31,6 @@ syslog_onsite->info('Just some info')
 
 // Log an issue locally
 syslog_local->debug('Just some debugging info')
-
-// Or just this for 127.0.0.1:415
-syslog->debug('Just some debugging info')
-
 ```
 
 ## Facilities
