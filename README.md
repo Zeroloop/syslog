@@ -58,13 +58,12 @@ Supports RFC3164 and RFC5424.
 
 ## Message types
 
-->emergency
-->alert
-->critical
-->error
-->warning
-->notice
-->informational
-->debug
+- ->emergency
+- ->alert
+- ->critical
+- ->error
+- ->warning
+- ->notice
+- ->informational
+- ->debug
 
-	         
