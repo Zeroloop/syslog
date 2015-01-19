@@ -162,7 +162,7 @@ define syslog => type {
 //
 ///////////////////////////////////////////////////////
 
-	public write(msg::string,priority::integer) => debug => {
+	public write(msg::string,priority::integer) => {
 		local(message) = array
 
 
